@@ -8,4 +8,8 @@ def Tech_project_index(request):
         'Tech_projects' : Tech_projects
     }
     return render(request, 'Tech_project_index.html',context)
+
+def Tech_project_details(request,key):
+    Tech_project = Tech_project.objects.get(key=key)
+
      
