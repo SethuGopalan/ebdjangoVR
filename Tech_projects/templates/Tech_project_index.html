@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+
+{% comment %} {{Tech_project}} {% endcomment %}
+
+{% comment %} {% for Tech_project in Tech_projects%}
+{%endfor%} {% endcomment %}
+
+
+{% load static %}
+{% block page_content %}
+<h1>Tech_projects</h1>
+<div class="row">
+{% for tech_project in tech_project %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static Tech_project.image %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ Tech_project.title }}</h5>
+                <p class="card-text">{{ Tech_project.description }}</p>
+                <a href="{% url 'Tech_project_detail' Tech_project.key %}"
+                   class="btn btn-primary">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
