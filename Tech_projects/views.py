@@ -10,6 +10,10 @@ def Tech_project_index(request):
     return render(request, 'Tech_project_index.html',context)
 
 def Tech_project_details(request,key):
-    Tech_project = Tech_project.objects.get(key=key)
+    tech_project = Tech_project.objects.get(key=key)
+    context={
+        'tech_project':tech_project
+    }
+    return render(request,'Tech_project_details.html',context)
 
      
